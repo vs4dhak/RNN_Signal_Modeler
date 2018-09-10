@@ -13,7 +13,7 @@ import numpy as np
 
 # LOCAL IMPORTS
 # ----------------------------------------------------------------------------------------------------------------------
-import csv
+import core_csv
 from logger import *
 from plotter import *
 
@@ -64,7 +64,7 @@ class data_feeder:
 
         for csv_path in self.csv_path_list:
             logger.info("Reading CSV {} ...".format(csv_path))
-            self.csv_data.append(csv.filter_df_columns(df=csv.read_csv(csv_path),
+            self.csv_data.append(core_csv.filter_df_columns(df=core_csv.read_csv(csv_path),
                                                        columns_to_keep=self.signals))
             logger.info("Done reading CSV.")
 

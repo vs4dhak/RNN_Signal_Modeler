@@ -214,8 +214,6 @@ class recurrent_neural_network:
                     print("Accuracy mode")
                 # ------------------------------------------------------------------------------------------------------
 
-
-
     def run(self,
             data,
             load_model=True,
@@ -330,91 +328,109 @@ class recurrent_neural_network:
 
 if __name__ == '__main__':
 
-    # Initializing Parameters
-    # ==================================================================================================================
-    batch_size = 50
-    one_hot_encoding_config = [3, -3, 0.01]
-    rnn_size = 250
-    initial_learning_rate = 0.01 #0.0001
-    num_epochs = 5
-    downsample_factor = 10 # 3
+    batch_size_list = [10,20,30,40,50]
+    rnn_size_list = [50,100,150,200,250]
+    num_epochs_list = [5,10,15,20,25,50]
+    downsample_factor_list = [2,4,6,8,10]
+    # initial_learning_rate = 0.01
 
-    # signal = ['BMS_packVoltage']
-    signal = ['y']#['BMS_packVoltage']
+    for batch_size in batch_size_list:
+        for rnn_size in rnn_size_list:
+            for num_epochs in num_epochs_list:
+                for downsample_factor in downsample_factor_list:
 
+                    # Initializing Parameters
+                    # ==================================================================================================================
+                    # batch_size = 50
+                    one_hot_encoding_config = [3, -3, 0.01]
+                    # rnn_size = 250
+                    initial_learning_rate = 0.01 #0.0001
+                    # num_epochs = 5
+                    # downsample_factor = 10 # 3
 
-
-    # Specifying the dataset which is to be processed
-    # ==================================================================================================================
-    # data_path = r'\\teslamotors.com\US\Public\Powertrain Product Excellence\ORT\M3_Pack\1_Data\ORT\P1104424-00-J_STG118136000KWJ\raw_data\M3_Battery_VEH_TG118136000KWJ_1104424-00-J_Model3\PTCE'
-    # csv_paths = [data_path + r'\2018-06-16 at 19;28;47.csv']
-
-    data_path = r'C:\Users\anagarwal\Desktop\RNN\Data'
-    function = "2sin(08x)+02cos(2x)+sin(02x+2)+sin(001x)"#"PTCE - 2018-08-15 - 07;07;23"
-    file_extension = ".csv"
-    csv_paths = [data_path + r'\{}{}'.format(function,file_extension)]
-
-    model_directory = r'C:\Users\anagarwal\Desktop\RNN\Models\{}\RNNSize-{}_BatchSize-{}'.format(function,rnn_size, batch_size)
-    # model_directory = r'\\teslamotors.com\US\Public\Powertrain Product Excellence\ORT\M3_Pack\12 - ORT_ML_Models\Signal-{}_RNNSize-{}_BatchSize-{}'.format(signal[0],rnn_size, batch_size)
-
-    # Saving the training configuration
-    # ==================================================================================================================
-    train_config = dict()
-    train_config['batch_size'] = batch_size
-    train_config['one_hot_encoding'] = ",".join(str(x) for x in one_hot_encoding_config)
-    train_config['rnn_size'] = rnn_size
-    train_config['initial_learning_rate'] = initial_learning_rate
-    train_config['num_epochs'] = num_epochs
-    train_config['signal'] = signal
-    train_config['downsample_factor'] = downsample_factor
-    train_config['training_data'] = ",".join(str(x) for x in csv_paths)
-
-    # TODO: Saving the training config
-    # ==================================================================================================================
-    # train_config_df = pd.DataFrame(train_config, index=[0])
-    # logger.info(train_config_df)
-
-    # Initializing the data feeder
-    # ==================================================================================================================
-    data = data_feeder(csv_path_list=csv_paths,
-                       signal_list=signal,
-                       batch_size=batch_size,
-                       one_hot_encoding_config=one_hot_encoding_config,
-                       downsample_factor=downsample_factor)
+                    # signal = ['BMS_packVoltage']
+                    signal = ['y']#['BMS_packVoltage']
 
 
-    # Initializing the RNN
-    # ==================================================================================================================
-    r_nn = recurrent_neural_network(batch_size=batch_size,
-                                    one_hot_encoding_config=one_hot_encoding_config,
-                                    rnn_size=rnn_size,
-                                    learning_rate=initial_learning_rate,
-                                    model_directory=model_directory)
 
-    # Training the RNN
-    # ==================================================================================================================
-    for i in range(1,20):
+                    # Specifying the dataset which is to be processed
+                    # ==================================================================================================================
 
-        if i == 1:
-            load_model = False
-        else:
-            load_model = True
+                    data_path = r'C:\Users\anagarwal\Desktop\RNN\Data'
+                    function = "2sin(08x)+02cos(2x)+sin(02x+2)+sin(001x)"#"PTCE - 2018-08-15 - 07;07;23"
+                    file_extension = ".csv"
+                    csv_paths = [data_path + r'\{}{}'.format(function,file_extension)]
 
-        r_nn.train(data=data, mode='epochs', num_epochs=num_epochs, load_model=load_model,
-                  save_model=True, model_name='signal-{}-'
-                                              'batchsize-{}-'
-                                              'rnnsize-{}'
-                                              .format(signal[0],
-                                                      batch_size,
-                                                      rnn_size))
+                    model_directory = r'C:\Users\anagarwal\Desktop\RNN\Models\{}\RNNSize-{}_BatchSize-{}'.format(function,rnn_size, batch_size)
 
-        r_nn.run(data, load_model=True, plot_flag=True, save_flag=True, save_directory=r'C:\Users\anagarwal\Desktop\RNN\Plots\{}'.format(function))
+                    # Saving the training configuration
+                    # ==================================================================================================================
+                    train_config = dict()
+                    train_config['batch_size'] = batch_size
+                    train_config['one_hot_encoding'] = ",".join(str(x) for x in one_hot_encoding_config)
+                    train_config['rnn_size'] = rnn_size
+                    train_config['initial_learning_rate'] = initial_learning_rate
+                    train_config['num_epochs'] = num_epochs
+                    train_config['signal'] = signal
+                    train_config['downsample_factor'] = downsample_factor
+                    train_config['training_data'] = ",".join(str(x) for x in csv_paths)
 
-        # num_epochs = num_epochs*2
-        r_nn.learning_rate = r_nn.learning_rate / 10
-        r_nn.optimizer = tf.train.AdamOptimizer(learning_rate=r_nn.learning_rate).minimize(r_nn.cost)
+                    # TODO: Saving the training config
+                    # ==================================================================================================================
+                    # train_config_df = pd.DataFrame(train_config, index=[0])
+                    # logger.info(train_config_df)
 
-    # Running the RNN
-    # ==================================================================================================================
-    r_nn.run(data,load_model=True,plot_flag=True,save_flag=True,save_directory=r'C:\Users\anagarwal\Desktop\RNN\Plots\{}'.format(function))
+                    # Initializing the data feeder
+                    # ==================================================================================================================
+                    data = data_feeder(csv_path_list=csv_paths,
+                                       signal_list=signal,
+                                       batch_size=batch_size,
+                                       one_hot_encoding_config=one_hot_encoding_config,
+                                       downsample_factor=downsample_factor)
+
+
+                    # Initializing the RNN
+                    # ==================================================================================================================
+                    r_nn = recurrent_neural_network(batch_size=batch_size,
+                                                    one_hot_encoding_config=one_hot_encoding_config,
+                                                    rnn_size=rnn_size,
+                                                    learning_rate=initial_learning_rate,
+                                                    model_directory=model_directory)
+
+                    # Training the RNN
+                    # ==================================================================================================================
+                    load_model_flag = False
+
+                    while r_nn.learning_rate > 0.0000000001:
+
+                        if load_model_flag == False:
+                            load_model = False
+                            load_model_flag = True
+                        else:
+                            load_model = True
+
+                        r_nn.train(data=data, mode='epochs', num_epochs=num_epochs, load_model=load_model,
+                                  save_model=True, model_name='signal-{}-'
+                                                              'batchsize-{}-'
+                                                              'rnnsize-{}'
+                                                              .format(signal[0],
+                                                                      batch_size,
+                                                                      rnn_size))
+
+                        r_nn.run(data, load_model=True, plot_flag=True, save_flag=True,
+                                 save_directory=r'C:\Users\anagarwal\Desktop\RNN\Plots\{}\BS{}-RS{}-NE{}-DF{}'.format(
+                                     function,batch_size,rnn_size,num_epochs,downsample_factor))
+
+                        # num_epochs = num_epochs*2
+                        r_nn.learning_rate = r_nn.learning_rate / 10
+                        r_nn.optimizer = tf.train.AdamOptimizer(learning_rate=r_nn.learning_rate).minimize(r_nn.cost)
+
+                    # Running the RNN
+                    # ==================================================================================================================
+                    r_nn.run(data,load_model=True,plot_flag=True,save_flag=True,
+                             save_directory=r'C:\Users\anagarwal\Desktop\RNN\Plots\{}\BS{}-RS{}-NE{}-DF{}'.format(
+                                 function,batch_size, rnn_size, num_epochs, downsample_factor))
+
+                    tf.reset_default_graph()
+                    del r_nn
 
