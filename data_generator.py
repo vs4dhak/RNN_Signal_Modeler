@@ -28,7 +28,7 @@ def generate_data(file_name):
 
         print("x: {} | y: {}".format(x,y))
 
-    data.to_csv(r'C:\Users\anagarwal\Desktop\RNN\Data\{}.csv'.format(file_name))
+    data.to_csv(r'C:\RNN\Data\{}.csv'.format(file_name))
 
 
 # MAIN

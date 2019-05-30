@@ -348,20 +348,19 @@ if __name__ == '__main__':
                     # num_epochs = 5
                     # downsample_factor = 10 # 3
 
-                    # signal = ['BMS_packVoltage']
-                    signal = ['y']#['BMS_packVoltage']
+                    signal = ['y']
 
 
 
                     # Specifying the dataset which is to be processed
                     # ==================================================================================================================
 
-                    data_path = r'C:\Users\anagarwal\Desktop\RNN\Data'
-                    function = "2sin(08x)+02cos(2x)+sin(02x+2)+sin(001x)"#"PTCE - 2018-08-15 - 07;07;23"
+                    data_path = r'C:\RNN\Data'
+                    function = "2sin(08x)+02cos(2x)+sin(02x+2)+sin(001x)"
                     file_extension = ".csv"
                     csv_paths = [data_path + r'\{}{}'.format(function,file_extension)]
 
-                    model_directory = r'C:\Users\anagarwal\Desktop\RNN\Models\{}\RNNSize-{}_BatchSize-{}'.format(function,rnn_size, batch_size)
+                    model_directory = r'C:\RNN\Models\{}\RNNSize-{}_BatchSize-{}'.format(function,rnn_size, batch_size)
 
                     # Saving the training configuration
                     # ==================================================================================================================
