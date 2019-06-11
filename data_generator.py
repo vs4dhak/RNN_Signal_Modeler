@@ -7,6 +7,7 @@
 # GLOBAL IMPORTS
 # ----------------------------------------------------------------------------------------------------------------------
 
+import os
 import math
 import pandas as pd
 
@@ -15,6 +16,9 @@ import pandas as pd
 # ----------------------------------------------------------------------------------------------------------------------
 
 def generate_data(file_name):
+
+    if not os.path.exists(r'/home/veda/git/RNN_Signal_Modeler/data'):
+        os.makedirs(r'/home/veda/git/RNN_Signal_Modeler/data')
 
     data = pd.DataFrame()
 
@@ -28,7 +32,7 @@ def generate_data(file_name):
 
         print("x: {} | y: {}".format(x,y))
 
-    data.to_csv(r'C:\RNN\Data\{}.csv'.format(file_name))
+    data.to_csv(os.path.join('/home/veda/git/RNN_Signal_Modeler','data/{}.csv'.format(file_name)))
 
 
 # MAIN

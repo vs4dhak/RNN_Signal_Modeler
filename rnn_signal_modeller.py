@@ -15,7 +15,6 @@ import tensorflow as tf
 from tensorflow.contrib import rnn
 from datetime import datetime
 import matplotlib.pyplot as plt
-import tkinter as tk
 
 
 # LOCAL IMPORTS
@@ -25,10 +24,17 @@ from logger import *
 from plotter import *
 from data_feeder import *
 
+# Data Directory
+# ----------------------------------------------------------------------------------------------------------------------
+
+BASE_DIR = "/home/veda/git/RNN_Signal_Modeler"
+
+
 
 # RNN CLASS
 # ----------------------------------------------------------------------------------------------------------------------
 class recurrent_neural_network:
+
 
     def __init__(self,
                  batch_size,
@@ -319,8 +325,8 @@ class recurrent_neural_network:
                     if save_flag == True:
                         if os.path.exists(save_directory) == False:
                             os.makedirs(save_directory)
-                        plot_data.to_csv(save_directory + r'\epoch_{}.csv'.format(epoch))
-                        logger.info("Saved prediction to {}".format(save_directory + r'\epoch_{}.csv'.format(epoch)))
+                        plot_data.to_csv(save_directory + r'/epoch_{}.csv'.format(epoch))
+                        logger.info("Saved prediction to {}".format(save_directory + r'/epoch_{}.csv'.format(epoch)))
 
 
 # SAMPLE CODE
@@ -328,10 +334,10 @@ class recurrent_neural_network:
 
 if __name__ == '__main__':
 
-    batch_size_list = [10,20,30,40,50]
-    rnn_size_list = [50,100,150,200,250]
-    num_epochs_list = [5,10,15,20,25,50]
-    downsample_factor_list = [2,4,6,8,10]
+    batch_size_list = [10]#[10,20,30,40,50]
+    rnn_size_list = [50]#[50,100,150,200,250]
+    num_epochs_list = [1]#[5,10,15,20,25,50]
+    downsample_factor_list = [10]#[2,4,6,8,10]
     # initial_learning_rate = 0.01
 
     for batch_size in batch_size_list:
@@ -350,17 +356,15 @@ if __name__ == '__main__':
 
                     signal = ['y']
 
-
-
                     # Specifying the dataset which is to be processed
                     # ==================================================================================================================
 
-                    data_path = r'C:\RNN\Data'
+                    data_path = os.path.join('/home/veda/git/RNN_Signal_Modeler','data')
                     function = "2sin(08x)+02cos(2x)+sin(02x+2)+sin(001x)"
                     file_extension = ".csv"
-                    csv_paths = [data_path + r'\{}{}'.format(function,file_extension)]
+                    csv_paths = [data_path + r'/{}{}'.format(function,file_extension)]
 
-                    model_directory = r'C:\RNN\Models\{}\RNNSize-{}_BatchSize-{}'.format(function,rnn_size, batch_size)
+                    model_directory = os.path.join(BASE_DIR,'models/{}/RNNSize-{}_BatchSize-{}'.format(function,rnn_size, batch_size))
 
                     # Saving the training configuration
                     # ==================================================================================================================
@@ -417,8 +421,8 @@ if __name__ == '__main__':
                                                                       rnn_size))
 
                         r_nn.run(data, load_model=True, plot_flag=True, save_flag=True,
-                                 save_directory=r'C:\Users\anagarwal\Desktop\RNN\Plots\{}\BS{}-RS{}-NE{}-DF{}'.format(
-                                     function,batch_size,rnn_size,num_epochs,downsample_factor))
+                                 save_directory=os.path.join(BASE_DIR,r"plots/{}/BS{}-RS{}-NE{}-DF{}".format(
+                                     function,batch_size,rnn_size,num_epochs,downsample_factor)))
 
                         # num_epochs = num_epochs*2
                         r_nn.learning_rate = r_nn.learning_rate / 10
@@ -427,8 +431,8 @@ if __name__ == '__main__':
                     # Running the RNN
                     # ==================================================================================================================
                     r_nn.run(data,load_model=True,plot_flag=True,save_flag=True,
-                             save_directory=r'C:\Users\anagarwal\Desktop\RNN\Plots\{}\BS{}-RS{}-NE{}-DF{}'.format(
-                                 function,batch_size, rnn_size, num_epochs, downsample_factor))
+                             save_directory=os.path.join(BASE_DIR, "Plots/{}/BS{}-RS{}-NE{}-DF{}".format(
+                                 function,batch_size, rnn_size, num_epochs, downsample_factor)))
 
                     tf.reset_default_graph()
                     del r_nn
