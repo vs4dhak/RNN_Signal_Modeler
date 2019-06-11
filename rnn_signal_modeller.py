@@ -429,7 +429,7 @@ if __name__ == '__main__':
                     # Running the RNN
                     # ==================================================================================================================
                     r_nn.run(data,load_model=True,plot_flag=True,save_flag=True,
-                             save_directory=os.path.join(BASE_DIR, "Plots/{}/BS{}-RS{}-NE{}-DF{}".format(
+                             save_directory=os.path.join(BASE_DIR, "plots/{}/BS{}-RS{}-NE{}-DF{}".format(
                                  function,batch_size, rnn_size, num_epochs, downsample_factor)))
 
                     tf.reset_default_graph()
