@@ -10,4 +10,4 @@ A general purpose signal modeler built using the Tensorflow Recurrent Neural Net
 6) Run the recurrent neural network (rnn_signal_modeller.py) and wait (execution time depends on the hyper-parameters)
 7) Experiment!
 
-Note: By default rnn_signal_modeller will generate intermediate plots across the iterations in <base directory>/plots
+Note: By default rnn_signal_modeller will generate intermediate plots across the iterations in plots/
