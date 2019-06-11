@@ -7,7 +7,7 @@ A general purpose signal modeler built using the Tensorflow Recurrent Neural Net
 2) Run the data generator (data_generator.py) to generate the signal will be modelled 
 4) Set the base directory for the recurrent neural network in rnn_signal_modeller.py on line 30
 5) Set the hyper-parameters of the network  in rnn_signal_modeller.py in line 335-339
-6) Run the recurrent neural network (rnn_signal_modeller.py) and wait. Execution time depends on the hyper-parameters
+6) Run the recurrent neural network (rnn_signal_modeller.py) and wait (execution time depends on the hyper-parameters)
 7) Experiment!
 
 Note: By default rnn_signal_modeller will generate intermediate plots across the iterations in <base directory>/plots
