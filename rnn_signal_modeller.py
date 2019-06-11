@@ -345,12 +345,8 @@ if __name__ == '__main__':
 
                     # Initializing Parameters
                     # ==================================================================================================================
-                    # batch_size = 50
-                    one_hot_encoding_config = [3, -3, 0.01]
-                    # rnn_size = 250
+                    one_hot_encoding_config = [3, 0, 0.01]
                     initial_learning_rate = 0.01 #0.0001
-                    # num_epochs = 5
-                    # downsample_factor = 10 # 3
 
                     signal = ['y']
 
