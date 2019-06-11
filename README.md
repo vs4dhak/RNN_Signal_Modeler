@@ -1,5 +1,5 @@
-# RNN_Signal_Modeler
-A General Purpose Signal Modeler built using Tensorflow Recurrent Neural Networks
+# Recurrent Neural Network Signal Modeler
+A General Purpose Signal Modeler built using the Tensorflow Recurrent Neural Network module
 
 # Instructions
 1) Define the signal which you would like to model in data_generator.py on line 25
