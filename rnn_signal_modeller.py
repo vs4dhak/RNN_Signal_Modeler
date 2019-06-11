@@ -29,8 +29,6 @@ from data_feeder import *
 
 BASE_DIR = "/home/veda/git/RNN_Signal_Modeler"
 
-
-
 # RNN CLASS
 # ----------------------------------------------------------------------------------------------------------------------
 class recurrent_neural_network:

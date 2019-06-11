@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="479bd0f6-7b0f-46f3-aedd-3c29b5a3e1c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/RNN_Signal_Modeler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RNN_Signal_Modeler.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_generator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rnn_signal_modeller.py" beforeDir="false" afterPath="$PROJECT_DIR$/rnn_signal_modeller.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,8 +54,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rnn_signal_modeller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="340" column="26" selection-start-line="340" selection-start-column="26" selection-end-line="340" selection-end-column="26" />
+            <state relative-caret-position="135">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
               <folding>
                 <element signature="e#461#470#0" expanded="true" />
               </folding>
@@ -89,8 +85,8 @@
       <list>
         <option value="$PROJECT_DIR$/plot_imports.py" />
         <option value="$PROJECT_DIR$/plotter.py" />
-        <option value="$PROJECT_DIR$/rnn_signal_modeller.py" />
         <option value="$PROJECT_DIR$/data_generator.py" />
+        <option value="$PROJECT_DIR$/rnn_signal_modeller.py" />
       </list>
     </option>
   </component>
@@ -277,8 +273,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rnn_signal_modeller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="340" column="26" selection-start-line="340" selection-start-column="26" selection-end-line="340" selection-end-column="26" />
+        <state relative-caret-position="135">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="e#461#470#0" expanded="true" />
           </folding>
