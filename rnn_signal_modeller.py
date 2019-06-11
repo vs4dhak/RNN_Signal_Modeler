@@ -334,7 +334,7 @@ if __name__ == '__main__':
 
     batch_size_list = [10]#[10,20,30,40,50]
     rnn_size_list = [50]#[50,100,150,200,250]
-    num_epochs_list = [1]#[5,10,15,20,25,50]
+    num_epochs_list = [50]#[5,10,15,20,25,50]
     downsample_factor_list = [10]#[2,4,6,8,10]
     # initial_learning_rate = 0.01
 
