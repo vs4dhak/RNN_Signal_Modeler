@@ -11,14 +11,18 @@ import os
 import math
 import pandas as pd
 
+# Data Directory
+# ----------------------------------------------------------------------------------------------------------------------
+
+BASE_DIR = "/home/veda/git/RNN_Signal_Modeler"
 
 # FUNCTIONS
 # ----------------------------------------------------------------------------------------------------------------------
 
 def generate_data(file_name):
 
-    if not os.path.exists(r'/home/veda/git/RNN_Signal_Modeler/data'):
-        os.makedirs(r'/home/veda/git/RNN_Signal_Modeler/data')
+    if not os.path.exists(os.path.join(BASE_DIR,'data')):
+        os.makedirs(os.path.join(BASE_DIR,'data'))
 
     data = pd.DataFrame()
 
@@ -32,7 +36,7 @@ def generate_data(file_name):
 
         print("x: {} | y: {}".format(x,y))
 
-    data.to_csv(os.path.join('/home/veda/git/RNN_Signal_Modeler','data/{}.csv'.format(file_name)))
+    data.to_csv(os.path.join(BASE_DIR,'data/{}.csv'.format(file_name)))
 
 
 # MAIN
