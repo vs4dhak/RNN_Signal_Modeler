@@ -1,5 +1,6 @@
 # Recurrent Neural Network Signal Modeler
 A general purpose signal modeler built using the Tensorflow Recurrent Neural Network module.
+
 https://medium.com/towards-artificial-intelligence/signal-modelling-using-recurrent-neural-networks-d832f0c50503
 
 # Instructions
