@@ -5,7 +5,8 @@ A general purpose signal modeler built using the Tensorflow Recurrent Neural Net
 https://medium.com/towards-artificial-intelligence/signal-modelling-using-recurrent-neural-networks-d832f0c50503<br/><br/>
 <p align="center">
   <img src="https://github.com/veda-s4dhak/RNN_Signal_Modeler/blob/master/RNN_Signal_Modeler.gif">
-</p><br/>
+</p>
+
 # Instructions
 
 1) Define the signal which you would like to model in data_generator.py on line 25
