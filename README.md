@@ -1,8 +1,11 @@
 # Recurrent Neural Network Signal Modeler
+
 A general purpose signal modeler built using the Tensorflow Recurrent Neural Network module.
+
 https://medium.com/towards-artificial-intelligence/signal-modelling-using-recurrent-neural-networks-d832f0c50503
 
 # Instructions
+
 1) Define the signal which you would like to model in data_generator.py on line 25
 2) Set the directory in which to save the generated data in data_generator.py on line 17
 2) Run the data generator (data_generator.py) to generate the signal will be modelled 
